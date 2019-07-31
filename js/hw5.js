@@ -4,34 +4,42 @@ $(document).ready(function(){
     {
         var rev=0;
         var pal=0;
-        console.log(pal);
-        for(var temp=numb;temp>0;temp=temp/10)
+        //console.log(pal);
+        var dig;
+        for(var temp=numb;temp>0;  temp=parseInt(temp/10))
         {
+            dig=(temp%10);
+            //console.log(dig);
+            rev=rev+(rev*10)+dig;
+            console.log(rev);
             
-            rev=(rev*10)+(temp%10);
 
         }
+       /* if(temp==1)
+        {
+            rev+=(rev*10)+1;
+        }*/
         if(rev==numb)
         {
             pal=1;
-            console.log(pal);
+            //console.log(pal);
             
          
         }
         else
         {
             pal=0;
-            console.log(pal);
+            //console.log(pal);
         }
     }
 
 
-    $('.b1').click(function(){
-        var num=$('.num1').val();
-        console.log(num);   
+    $('#b1').click(function(){
+        var num=$('#num1').val();
+        //console.log(num);   
         num2=parseInt(num);
         //console.log(num2);        
-        pal(num);
+        pal(num2);
         var mypromise=new Promise((resolve,reject)=>{
 
             
@@ -46,10 +54,10 @@ $(document).ready(function(){
         
         });
         mypromise.then(()=>{
-            console.log("Number is Pallindrome");
+            //console.log("Number is Pallindrome");
             document.getElementById("result").innerHTML="Number is Pallindrome";
         }).catch(()=>{
-            console.log("Number is not Pallindrome ");
+            //console.log("Number is not Pallindrome ");
             document.getElementById("result").innerHTML="Number is not Pallindrome ";
         })
     })
