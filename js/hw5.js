@@ -3,32 +3,30 @@ $(document).ready(function(){
     function pal(numb)
     {
         var rev=0;
-        var pal=0;
+        var pali=0;
         //console.log(pal);
         var dig;
         for(var temp=numb;temp>0;  temp=parseInt(temp/10))
         {
             dig=(temp%10);
             //console.log(dig);
-            rev=rev+(rev*10)+dig;
-            console.log(rev);
+            rev=(rev*10)+dig;
+            //console.log(rev);
             
 
         }
-       /* if(temp==1)
-        {
-            rev+=(rev*10)+1;
-        }*/
         if(rev==numb)
         {
-            pal=1;
-            //console.log(pal);
+            pali=1;
+            return(pali);
+            //console.log(pali);
             
          
         }
         else
         {
-            pal=0;
+            pali=0;
+            return(pali);
             //console.log(pal);
         }
     }
@@ -39,11 +37,12 @@ $(document).ready(function(){
         //console.log(num);   
         num2=parseInt(num);
         //console.log(num2);        
-        pal(num2);
+        var p=pal(num2);
+        //console.log(p);
         var mypromise=new Promise((resolve,reject)=>{
 
             
-            if(pal==1)
+            if(p==1)
             {
                 resolve();
             }
